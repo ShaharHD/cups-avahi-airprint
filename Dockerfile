@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM i386/ubuntu:latest
 
 # Install the packages we need. Avahi will be included
 RUN apt-get update \
@@ -12,12 +12,14 @@ RUN apt-get update \
 	inotify-tools \
 	python \
 	python-dev \
-    python-cups \
+  python-cups \
 	foomatic-db-compressed-ppds \
 	printer-driver-all \
 	openprinting-ppds \
 	hpijs-ppds \
 	hp-ppd \
+	libc6 \
+	apt-utils \
 	hplip \
 	wget \
 	rsync \
@@ -30,6 +32,10 @@ EXPOSE 631
 # We want a mount for these
 VOLUME /config
 VOLUME /services
+
+RUN wget https://rickvanderzwet.nl/trac/personal/raw-attachment/wiki/XeroxPhaser6125N/cups-xerox-phaser-6125n-1.0.0.deb -P /tmp \
+	&& dpkg -i /tmp/cups-xerox-phaser-6125n-1.0.0.deb \
+	&& rm /tmp/cups-xerox-phaser-6125n-1.0.0.deb
 
 # Add scripts
 ADD root /
