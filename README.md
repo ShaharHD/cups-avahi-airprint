@@ -1,4 +1,4 @@
-# chuckcharlie/cups-avahi-airprint
+# shaharhd/cups-avahi-airprint
 
 Fork from [Oekn5w/cups-avahi-airprint](https://github.com/Oekn5w/cups-avahi-airprint)
 
@@ -31,7 +31,7 @@ docker run --name cups --restart unless-stopped  --net host\
   -v <your config dir>:/config \
   -e CUPSADMIN="<username>" \
   -e CUPSPASSWORD="<password>" \
-  chuckcharlie/cups-avahi-airprint:latest
+  shaharhd/cups-avahi-airprint:latest
 ```
 
 ## Add and set up printer
